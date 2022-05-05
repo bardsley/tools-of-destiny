@@ -103,8 +103,11 @@
     tags.forEach((tag,index)=>{
         var cardStyle = `main.${tag} #apps .card.${tag} { display:flex; } `;
         var tagStyle  = `main.${tag} #apps .tags .tag.${tag} { background: #05A895; } `
+        var controlStyle  = `main.${tag} #controls .tag.${tag} { background: #05A895; } `
         sheet.insertRule(cardStyle,index);
         sheet.insertRule(tagStyle,index);
+        sheet.insertRule(controlStyle,index);
+
     })
     
     var graphics = [
@@ -151,17 +154,20 @@
         });
         mainSpace.className = tags.join(' ')
        
-        Array.from(document.querySelectorAll('.tag')).forEach(elm=>{
+        Array.from(document.querySelectorAll('#controls .tag')).forEach(elm=>{
+            elm.addEventListener('dblclick',(event)=>{
+                var tag = event.currentTarget.dataset.tag
+                mainSpace.classList.toggle(tag)
+                
+            })
             elm.addEventListener('click',(event)=>{
                 var tag = event.currentTarget.dataset.tag
                 if(tag !== 'all') {
-                    mainSpace.classList.toggle(tag)
+                    mainSpace.className = event.currentTarget.dataset.tag
                 } else {
                     mainSpace.className = tags.join(' ') 
                 }
-            })
-            elm.addEventListener('dblclick',(event)=>{
-                mainSpace.className = event.currentTarget.dataset.tag
+                
             })
         })
 
