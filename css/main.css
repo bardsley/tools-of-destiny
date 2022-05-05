@@ -1,0 +1,91 @@
+.tags {
+  display: none;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
+}
+
+header {
+  background-color: #0E0B1B;
+  color: #fff;
+  padding: 1em;
+}
+
+main div h2 {
+  width: 100%;
+  padding-left: 10px;
+}
+
+#apps, #graphics {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+#apps .card, #graphics .card {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  background-color: #c9ebe2;
+  margin: 5px;
+}
+#apps .card h2, #apps .card p, #apps .card a, #apps .card .tags, #graphics .card h2, #graphics .card p, #graphics .card a, #graphics .card .tags {
+  padding: 10px;
+  margin: 0;
+}
+#apps .card h2, #apps .card p, #graphics .card h2, #graphics .card p {
+  margin: 10px 0 0;
+  padding: 0 10px;
+}
+#apps .card h2, #graphics .card h2 {
+  font-size: 1.3em;
+}
+#apps .card p, #graphics .card p {
+  flex-grow: 1;
+}
+#apps .card p:last-child, #graphics .card p:last-child {
+  margin-bottom: 10px;
+}
+#apps .card .tags, #graphics .card .tags {
+  margin-top: 0px;
+}
+#apps .card .tags span, #graphics .card .tags span {
+  border-radius: 100px;
+  background-color: #0E0B1B;
+  font-size: 0.6em;
+  color: #fff;
+  padding: 2px 6px;
+  text-transform: uppercase;
+}
+#apps .card a.button, #graphics .card a.button {
+  display: block;
+  background-color: #05A895;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+#graphics {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+#graphics a, #graphics .card {
+  border-radius: 10px 10px 0 0;
+}
+#graphics .card {
+  width: 150px;
+  margin-bottom: 0;
+  font-size: 0.8em;
+}
+#graphics #selected-graphic {
+  flex-basis: 100%;
+  width: 100%;
+  background: #0E0B1B;
+  min-height: 20px;
+}
+
+/*# sourceMappingURL=main.css.map */

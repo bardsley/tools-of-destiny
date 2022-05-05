@@ -1,0 +1,63 @@
+$dark-blue: #0E0B1B;
+$lightened-blue: rgba(0,100,255,0.2);
+$dark-green: #05A895;
+$light-green: #8FD9C6;
+$slight-green: #c9ebe2;
+$test: #f1f9ee;
+$white: #fff;
+
+// Hide unused
+.tags { display:none; }
+
+html,body {
+    margin: 0; padding:0; 
+    font-family: 'Lato', sans-serif;
+    font-size: 1em;
+}
+header {
+    background-color: $dark-blue; color: $white;
+    padding: 1em; 
+}
+
+main div h2 { width: 100%; padding-left: 10px; }
+#apps , #graphics {
+    
+    display: flex; flex-wrap: wrap;
+    margin: 5px; 
+
+    .card {
+        width: 250px; display: flex; flex-direction: column; 
+        background-color: $slight-green;
+        margin: 5px;
+
+        h2,p,a,.tags { padding: 10px ; margin:0;}
+        h2,p { margin:10px 0 0; padding: 0 10px; }
+        h2 { font-size: 1.3em; }
+        p { flex-grow: 1; }
+        p:last-child { margin-bottom: 10px;}
+
+        .tags { margin-top: 0px; }
+        .tags span { 
+            border-radius: 100px; background-color: $dark-blue; font-size: 0.6em; color: $white;
+            padding: 2px 6px; text-transform: uppercase;
+        }
+
+        a.button {
+            display: block;
+            background-color: $dark-green;
+            text-align: center;
+            text-decoration: none;
+            color: $white;
+        }
+    }
+}
+
+#graphics {
+    a,.card { border-radius: 10px 10px 0 0; }
+    .card { width: 150px; margin-bottom: 0; font-size: 0.8em; }
+    display: flex; flex-wrap: wrap;
+    margin: 5px; 
+    #selected-graphic {
+        flex-basis: 100%; width: 100%; background:$dark-blue; min-height:20px;
+    }
+}

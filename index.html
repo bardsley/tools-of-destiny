@@ -4,12 +4,167 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1ec65a0be2.js" crossorigin="anonymous"></script>
+
     <title>Tools of Destiny</title>
+    <link rel="stylesheet" href="css/main.css">
+
+    <script>
+        var apps = [
+        {   "name": "Braytech",                 "url": "https://bray.tech",
+            "description": "", "tags": [ "maps","bounties", "vendors", "quests","weeklies"]
+        },{ "name": "Destiny recipes",          "url": "https://destinyrecipes.com",
+            "description": "","tags": [ "item-managment","vault-cleaning","roll-decisions"]
+        },{ "name": "DIM",                      "url": "https://app.destinyitemmanager.com",
+            "description": "", "tags": [  "item-managment","vault-cleaning","roll-decisions","vendors","quests","loadouts"]
+        },{ "name": "D2 Checklist",             "url": "https://www.d2checklist.com",
+            "description": "", "tags": [ "bounties","vendors","quests","weeklies"]
+        },{ "name": "Shattered Vault",          "url": "https://shatteredvault.com",
+            "description": "", "tags": [ ]
+        },{ "name": "Xur",                      "url": "https://wherexur.com",
+            "description": "", "tags": [ ]
+        },{ "name": "Light.gg",                         "url": "https://www.light.gg",
+            "description": "", "tags": [ ]
+        },{ "name": "Destiny tracker",                         "url": "https://destinytracker.com",
+            "description": "", "tags": [ ]
+        },{ "name": "D2 Gunsmith",                         "url": "https://d2gunsmith.com",
+            "description": "", "tags": [ ]
+        },{ "name": "Destiny Sets",             "url": "https://destinysets.com/",
+            "description": "", "tags": [ ]
+        },{ "name": "Guardian Forge",           "url": "https://guardianforge.net/",
+            "description": "", "tags": [ ]
+        },{ "name": "Trials Report",            "url": "https://trials.report/",
+            "description": "", "tags": [ ]
+        },{ "name": "Guardian Report",          "url": "https://guardian.report/",
+            "description": "", "tags": [ ]
+        },{ "name": "Raid Report",              "url": "https://raid.report/",
+            "description": "", "tags": [ ]
+        },{ "name": "Wasted on Destiny",        "url": "https://wastedondestiny.com/",
+            "description": "", "tags": [ ]
+        },{ "name": "Where is Xur?",            "url": "https://whereisxur.com/",
+            "description": "", "tags": [ ]
+        },{ "name": "Destiny Heat Map",         "url": "https://chrisfried.github.io/secret-scrublandeux/",
+            "description": "", "tags": [ ]
+        },{ "name": "Guardian Theatre",         "url": "https://alpha.guardian.theater/",
+            "description": "", "tags": [ ]
+        },{ "name": "Destiny Emblem Collector", "url": "https://destinyemblemcollector.com/",
+            "description": "", "tags": [ ]
+        },{ "name": "Today in Destiny",         "url": "https://www.todayindestiny.com/",
+            "description": "", "tags": [ ]
+        },{ "name": "Previously on Destiny",    "url": "https://www.previouslyondestiny.com/",
+            "description": "", "tags": [ ]
+        },{ "name": "Destiny K/D",              "url": "https://www.destinykd.com/",
+            "description": "", "tags": [ ]
+        },{ "name": "Blueberries.gg",                         "url": "https://www.blueberries.gg/",
+            "description": "", "tags": [ ]
+        },{ "name": "D2 Armor Picker",                         "url": "https://d2armorpicker.com/#/",
+            "description": "", "tags": [ ]
+        },{ "name": "Nightfall Report",                         "url": "https://nightfall.report",
+            "description": "", "tags": [ ]
+        },{ "name": "",                         "url": "",
+            "description": "", "tags": [ ]
+        },{ "name": "",                         "url": "",
+            "description": "", "tags": [ ]
+        },{ "name": "",                         "url": "",
+            "description": "", "tags": [ ]
+        },{ "name": "",                         "url": "",
+            "description": "", "tags": [ ]
+        },{ "name": "",                         "url": "",
+            "description": "", "tags": [ ]
+        },{ "name": "",                         "url": "",
+            "description": "", "tags": [ ]
+        },{ "name": "",                         "url": "",
+            "description": "", "tags": [ ]
+        },{ "name": "",                         "url": "",
+            "description": "", "tags": [ ]
+        },{ "name": "",                         "url": "",
+            "description": "", "tags": [ ]
+        }  
+    ];
+
+    var graphics = [
+        { "name": "GM Champs Basic", "url": "images/champs-basic.png" },
+        { "name": "GM Champs Detailed", "url": "images/champs-gmnf.png" },
+        { "name": "Vow - 1st Encounter", "url": "images/vow-1.png" },
+        { "name": "Vow - 3rd Encounter", "url": "images/vow-3.jpg" },
+        { "name": "Vow - Final Encounter", "url": "images/vow-4.jpg" },
+        { "name": "Vow - Symbols", "url": "images/vow-symbols.webp" },
+    ]
+
+    document.addEventListener('DOMContentLoaded',event => {
+        var destination = document.getElementById('apps')
+        var template = document.getElementById('app-card');
+        apps = apps.sort((a,b) => { 
+            return a.name.localeCompare(b.name) 
+        })
+        apps.forEach(app => {
+            if(app.name && app.url) {
+                var clone = template.content.firstElementChild.cloneNode(true);
+                clone.querySelector(".title").innerText = app.name
+                if(app.description) { clone.querySelector(".desc").innerText = app.description } else { clone.querySelector(".desc").remove() }
+                if(app.tags && app.tags.length >0) { clone.querySelector(".tags").innerHTML = '<span>' + app.tags.join('</span> <span>') + '</span>' } else { clone.querySelector(".tags").remove() }
+                clone.querySelector(".button").href = app.url
+                destination.append(clone);
+            }
+            
+        });
+        destination = document.getElementById('graphics')
+        template = document.getElementById('graphic-card');
+        graphics.forEach(img => {
+            var clone = template.content.firstElementChild.cloneNode(true);
+            clone.querySelector(".title").innerText = img.name
+            clone.querySelector(".button").innerText = img.name
+            clone.querySelector(".button").dataset.image = img.url
+            destination.append(clone);   
+        });
+        var graphicChanger = document.createElement('img')
+        destination.append(graphicChanger)
+        graphicChanger.id = "selected-graphic";
+
+        Array.from(document.querySelectorAll('.graphic-button a')).forEach(elm => {
+            elm.addEventListener('click',event => {
+                graphicChanger.src = event.currentTarget.dataset.image
+            })
+        })
+    })
+    
+    </script>
 </head>
 <body>
     
-    <header>Tools of destiny</header>
+    <header>Tools of destiny - by <span id="bungie-name">Abards_유<span id="bungie-id">#4283</span></span></header>
 
+    <main>
+        <div id="apps"><h2>Apps</h2></div>
+        <div id="graphics">
+            <h2>InfoGraphics</h2>
+
+            <!-- <img src="https://i.imgur.com/MhP4MyC.png" alt="Nightfalls">
+            <img src="https://media.discordapp.net/attachments/874687605319561216/942764420520640552/gmnf.png" alt="Nightfalls 2">
+            <img src="https://pbs.twimg.com/media/FNkh8deXIAIg2ze?format=jpg&name=large" alt="">
+            <img src="https://pbs.twimg.com/media/FNbMUXsWQAQvxWA?format=jpg&name=large" alt="">
+            <img src="https://i.postimg.cc/43Ygk2Z6/Vot-D-Encounter-1-V6.png" alt="">
+            <img src="https://d1lss44hh2trtw.cloudfront.net/resize?type=webp&url=https%3A%2F%2Fshacknews-www.s3.amazonaws.com%2Fassets%2Feditorial%2F2022%2F03%2Fdestiny-2-vow-of-the-disciple-raid-symbols-v2.jpg&width=986&sign=ojZqyODcdWDxxd9KGJhn91hLfNah5oCV7fu2UaKWbss" alt=""> -->
+        </div>
+    </main>
+
+    <template id="app-card">
+        <div class="card">
+            <a href="" class="button title">{{Name}}</a>
+            <div class="tags"></div>
+            <p class="desc"></p>
+        </div>
+    </template>
+    
+    <template id="graphic-card">
+        <div class="card graphic-button">
+            <a href="javascript:void(0);" class="button title">{{Name}}</a>
+        </div>
+    </template>
     
 </body>
 </html>
+
