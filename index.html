@@ -10,60 +10,60 @@
     <script src="https://kit.fontawesome.com/1ec65a0be2.js" crossorigin="anonymous"></script>
 
     <title>Tools of Destiny</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css" id>
 
     <script>
         var apps = [
         {   "name": "Braytech",                 "url": "https://bray.tech",
-            "description": "", "tags": [ "maps","bounties", "vendors", "quests","weeklies"]
+            "description": "", "tags": [ "maps","bounties","quests","vendors","triumphs","collections","weeklies","stats","lore","trivia" ]
         },{ "name": "Destiny recipes",          "url": "https://destinyrecipes.com",
-            "description": "","tags": [ "item-managment","vault-cleaning","roll-decisions"]
+            "description": "","tags":  [ "item-mgt","vault","weeklies","weapons","armor","godrolls","power-lvl","prep" ]
         },{ "name": "DIM",                      "url": "https://app.destinyitemmanager.com",
-            "description": "", "tags": [  "item-managment","vault-cleaning","roll-decisions","vendors","quests","loadouts"]
+            "description": "", "tags": [ "item-mgt","vault","loadouts","weapons","armor","godrolls","power-lvl"]
         },{ "name": "D2 Checklist",             "url": "https://www.d2checklist.com",
-            "description": "", "tags": [ "bounties","vendors","quests","weeklies"]
+            "description": "", "tags": [ "bounties","quests","vendors","triumphs","collections","weeklies","power-lvl","prep" ]
         },{ "name": "Shattered Vault",          "url": "https://shatteredvault.com",
-            "description": "", "tags": [ ]
+            "description": "", "tags": [ "guides","lore","weeklies" ]
         },{ "name": "Xur",                      "url": "https://wherexur.com",
-            "description": "", "tags": [ ]
+            "description": "", "tags": [ "vendors","weapons","armor","stats" ]
         },{ "name": "Light.gg",                         "url": "https://www.light.gg",
-            "description": "", "tags": [ ]
+            "description": "", "tags": [ "item-mgt","vault","weapons","armor","godrolls"]
         },{ "name": "Destiny tracker",                         "url": "https://destinytracker.com",
-            "description": "", "tags": [ ]
+            "description": "", "tags": [ "stats","pvp","pve","trivia"]
         },{ "name": "D2 Gunsmith",                         "url": "https://d2gunsmith.com",
-            "description": "", "tags": [ ]
+            "description": "", "tags": [ "weapons","godrolls" ]
         },{ "name": "Destiny Sets",             "url": "https://destinysets.com/",
-            "description": "", "tags": [ ]
+            "description": "", "tags": [ "weapons","armor","stats","trivia" ]
         },{ "name": "Guardian Forge",           "url": "https://guardianforge.net/",
-            "description": "", "tags": [ ]
+            "description": "", "tags": [ "loadouts","weapons","armor" ]
         },{ "name": "Trials Report",            "url": "https://trials.report/",
-            "description": "", "tags": [ ]
+            "description": "", "tags": [ "stats","pvp" ]
         },{ "name": "Guardian Report",          "url": "https://guardian.report/",
-            "description": "", "tags": [ ]
+            "description": "", "tags": [ "stats","pve", "trivia" ]
         },{ "name": "Raid Report",              "url": "https://raid.report/",
-            "description": "", "tags": [ ]
+            "description": "", "tags": ["stats","raid" ]
         },{ "name": "Wasted on Destiny",        "url": "https://wastedondestiny.com/",
-            "description": "", "tags": [ ]
+            "description": "", "tags": [ "stats","trivia"]
         },{ "name": "Where is Xur?",            "url": "https://whereisxur.com/",
-            "description": "", "tags": [ ]
+            "description": "", "tags": [ "vendors","weapons","armor" ]
         },{ "name": "Destiny Heat Map",         "url": "https://chrisfried.github.io/secret-scrublandeux/",
-            "description": "", "tags": [ ]
+            "description": "", "tags": [ "trivia", "stats" ]
         },{ "name": "Guardian Theatre",         "url": "https://alpha.guardian.theater/",
-            "description": "", "tags": [ ]
+            "description": "", "tags": [ "trivia" ]
         },{ "name": "Destiny Emblem Collector", "url": "https://destinyemblemcollector.com/",
-            "description": "", "tags": [ ]
+            "description": "", "tags": [ "collections" ]
         },{ "name": "Today in Destiny",         "url": "https://www.todayindestiny.com/",
-            "description": "", "tags": [ ]
+            "description": "", "tags": [ "bounties","quests","vendors","collections","weeklies" ]
         },{ "name": "Previously on Destiny",    "url": "https://www.previouslyondestiny.com/",
-            "description": "", "tags": [ ]
+            "description": "", "tags": [ "lore" ]
         },{ "name": "Destiny K/D",              "url": "https://www.destinykd.com/",
-            "description": "", "tags": [ ]
+            "description": "", "tags": [ "trivia","pvp","trials"]
         },{ "name": "Blueberries.gg",                         "url": "https://www.blueberries.gg/",
-            "description": "", "tags": [ ]
+            "description": "", "tags": [ "guides", "weapons", "armor" ]
         },{ "name": "D2 Armor Picker",                         "url": "https://d2armorpicker.com/#/",
-            "description": "", "tags": [ ]
+            "description": "", "tags": [ "loadouts", "armor" ]
         },{ "name": "Nightfall Report",                         "url": "https://nightfall.report",
-            "description": "", "tags": [ ]
+            "description": "", "tags": [ "stats","pve" ]
         },{ "name": "",                         "url": "",
             "description": "", "tags": [ ]
         },{ "name": "",                         "url": "",
@@ -84,7 +84,29 @@
             "description": "", "tags": [ ]
         }  
     ];
+    apps.sort((a,b) => { 
+        return a.name.localeCompare(b.name) 
+    })
 
+    var tagCloud =  {}
+    apps.forEach(app=>{
+        app.tags.forEach(tag=>{
+            tagCloud[tag] = tagCloud[tag] ?  tagCloud[tag] +1 : 1
+        })
+    })
+    var tags = Object.keys(tagCloud)
+    tags.unshift('all')
+
+    var element = document.createElement('style'), sheet;
+    document.head.appendChild(element);
+    sheet = element.sheet;
+    tags.forEach((tag,index)=>{
+        var cardStyle = `main.${tag} #apps .card.${tag} { display:flex; } `;
+        var tagStyle  = `main.${tag} #apps .tags .tag.${tag} { background: #05A895; } `
+        sheet.insertRule(cardStyle,index);
+        sheet.insertRule(tagStyle,index);
+    })
+    
     var graphics = [
         { "name": "GM Champs Basic", "url": "images/champs-basic.png" },
         { "name": "GM Champs Detailed", "url": "images/champs-gmnf.png" },
@@ -95,33 +117,64 @@
     ]
 
     document.addEventListener('DOMContentLoaded',event => {
-        var destination = document.getElementById('apps')
-        var template = document.getElementById('app-card');
-        apps = apps.sort((a,b) => { 
-            return a.name.localeCompare(b.name) 
+
+        var controlSpace = document.getElementById('controls')
+        var mainSpace = document.querySelector('main')
+        var appSpace = document.getElementById('apps')
+        var appTemplate = document.getElementById('app-card');
+        var graphicSpace = document.getElementById('graphics')
+        var graphicTemplate = document.getElementById('graphic-card');
+
+        tags.forEach(tag=>{
+            var control = document.createElement('a')
+            control.href = "javascript:void(0);"
+            control.className = `tag ${tag}`
+            control.innerText = tag
+            control.dataset.tag = tag
+            controlSpace.append(control)
         })
+
+        
         apps.forEach(app => {
             if(app.name && app.url) {
-                var clone = template.content.firstElementChild.cloneNode(true);
+                var clone = appTemplate.content.firstElementChild.cloneNode(true);
+                clone.className = clone.className + " " + app.tags.join(' ')
                 clone.querySelector(".title").innerText = app.name
                 if(app.description) { clone.querySelector(".desc").innerText = app.description } else { clone.querySelector(".desc").remove() }
-                if(app.tags && app.tags.length >0) { clone.querySelector(".tags").innerHTML = '<span>' + app.tags.join('</span> <span>') + '</span>' } else { clone.querySelector(".tags").remove() }
+                if(app.tags && app.tags.length >0) { 
+                    clone.querySelector(".tags").innerHTML = app.tags.map(tag=>{ return `<span data-tag="${tag}" class="tag ${tag}">${tag}</span>` }).join(' ') 
+                } else { clone.querySelector(".tags").remove() }
                 clone.querySelector(".button").href = app.url
-                destination.append(clone);
+                appSpace.append(clone);
             }
             
         });
-        destination = document.getElementById('graphics')
-        template = document.getElementById('graphic-card');
+        mainSpace.className = tags.join(' ')
+       
+        Array.from(document.querySelectorAll('.tag')).forEach(elm=>{
+            elm.addEventListener('click',(event)=>{
+                var tag = event.currentTarget.dataset.tag
+                if(tag !== 'all') {
+                    mainSpace.classList.toggle(tag)
+                } else {
+                    mainSpace.className = tags.join(' ') 
+                }
+            })
+            elm.addEventListener('dblclick',(event)=>{
+                mainSpace.className = event.currentTarget.dataset.tag
+            })
+        })
+
+        // Graphics Switcher
         graphics.forEach(img => {
-            var clone = template.content.firstElementChild.cloneNode(true);
+            var clone = graphicTemplate.content.firstElementChild.cloneNode(true);
             clone.querySelector(".title").innerText = img.name
             clone.querySelector(".button").innerText = img.name
             clone.querySelector(".button").dataset.image = img.url
-            destination.append(clone);   
+            graphicSpace.append(clone);   
         });
         var graphicChanger = document.createElement('img')
-        destination.append(graphicChanger)
+        graphicSpace.append(graphicChanger)
         graphicChanger.id = "selected-graphic";
 
         Array.from(document.querySelectorAll('.graphic-button a')).forEach(elm => {
@@ -129,6 +182,7 @@
                 graphicChanger.src = event.currentTarget.dataset.image
             })
         })
+        
     })
     
     </script>
@@ -138,6 +192,7 @@
     <header>Tools of destiny - by <span id="bungie-name">Abards_유<span id="bungie-id">#4283</span></span></header>
 
     <main>
+        <div id="controls"></div>
         <div id="apps"><h2>Apps</h2></div>
         <div id="graphics">
             <h2>InfoGraphics</h2>

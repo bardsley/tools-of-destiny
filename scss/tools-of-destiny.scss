@@ -7,7 +7,7 @@ $test: #f1f9ee;
 $white: #fff;
 
 // Hide unused
-.tags { display:none; }
+// .tags { display:none; }
 
 html,body {
     margin: 0; padding:0; 
@@ -20,13 +20,22 @@ header {
 }
 
 main div h2 { width: 100%; padding-left: 10px; }
+
+#controls {
+    display:flex; max-width: 100%; flex-wrap: wrap; 
+    a { 
+        display:block; padding: 0.2em 0.5em 0.3em; white-space: nowrap; margin: 1px; 
+        color: $white; background-color: $dark-green; text-decoration: none; font-size: 0.8em;
+        cursor: pointer;
+    }
+}
+
 #apps , #graphics {
-    
     display: flex; flex-wrap: wrap;
     margin: 5px; 
 
     .card {
-        width: 250px; display: flex; flex-direction: column; 
+        width: 250px; display: none; flex-direction: column; 
         background-color: $slight-green;
         margin: 5px;
 
@@ -38,8 +47,8 @@ main div h2 { width: 100%; padding-left: 10px; }
 
         .tags { margin-top: 0px; }
         .tags span { 
-            border-radius: 100px; background-color: $dark-blue; font-size: 0.6em; color: $white;
-            padding: 2px 6px; text-transform: uppercase;
+            border-radius: 100px; background-color: $light-green; font-size: 0.6em; color: $white;
+            padding: 2px 6px; text-transform: uppercase; white-space: nowrap; cursor: pointer;
         }
 
         a.button {
@@ -54,7 +63,7 @@ main div h2 { width: 100%; padding-left: 10px; }
 
 #graphics {
     a,.card { border-radius: 10px 10px 0 0; }
-    .card { width: 150px; margin-bottom: 0; font-size: 0.8em; }
+    .card { width: 150px; margin-bottom: 0; display:flex; font-size: 0.8em; }
     display: flex; flex-wrap: wrap;
     margin: 5px; 
     #selected-graphic {
