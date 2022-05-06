@@ -35,7 +35,7 @@ var apps = [
             "description": "", "tags": [ "stats" ]
         },{ "name": "Guardian Theatre",         "url": "https://alpha.guardian.theater/",
             "description": "", "tags": [ "stats"]
-        },{ "name": "Destiny Emblem Collector", "url": "https://destinyemblemcollector.com/",
+        },{ "name": "Emblem Collector", "url": "https://destinyemblemcollector.com/",
             "description": "", "tags": [ "collections" ]
         },{ "name": "Today in Destiny",         "url": "https://www.todayindestiny.com/",
             "description": "", "tags": [ "bounties","quests","vendors","collections","weeklies" ]
@@ -81,6 +81,7 @@ var apps = [
     })
     var tags = Object.keys(tagCloud)
     tags.unshift('all')
+    tags.sort()
 
     var element = document.createElement('style'), sheet;
     document.head.appendChild(element);
@@ -113,12 +114,23 @@ var apps = [
         var graphicSpace = document.getElementById('graphics')
         var graphicTemplate = document.getElementById('graphic-card');
 
-        tags.forEach(tag=>{
+        tags.forEach((tag,index)=>{
             var control = document.createElement('a')
             control.href = "javascript:void(0);"
             control.className = `tag ${tag}`
             control.innerText = tag
             control.dataset.tag = tag
+            if(index==10) { 
+                var breakElm = document.createElement('span')
+                breakElm.classList.add("break")
+                controlSpace.append(breakElm)
+            }
+            // if(index==6 || index==14 || index==21) { 
+            //     var breakElm = document.createElement('span')
+            //     if(index==14) { breakElm.classList.add("break") }
+            //     else { breakElm.classList.add("break-tiny") }
+            //     controlSpace.append(breakElm)
+            // }
             controlSpace.append(control)
         })
 
@@ -130,7 +142,7 @@ var apps = [
                 clone.querySelector(".title").innerText = app.name
                 if(app.description) { clone.querySelector(".desc").innerText = app.description } else { clone.querySelector(".desc").remove() }
                 if(app.tags && app.tags.length >0) { 
-                    clone.querySelector(".tags").innerHTML = app.tags.map(tag=>{ return `<span data-tag="${tag}" class="tag ${tag}">${tag}</span>` }).join(' ') 
+                    clone.querySelector(".tags").innerHTML = app.tags.sort().map(tag=>{ return `<span data-tag="${tag}" class="tag ${tag}">${tag}</span>` }).join(' ') 
                 } else { clone.querySelector(".tags").remove() }
                 clone.querySelector(".button").href = app.url
                 appSpace.append(clone);

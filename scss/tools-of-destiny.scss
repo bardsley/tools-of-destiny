@@ -18,32 +18,49 @@ html,body {
 }
 header {
     background-color: $dark-blue; color: $white;
-    padding: 1em 1em 0 1em; display: flex; align-items:center; 
+    padding: 1em 1em 0 1em; display: flex; align-items:center; justify-content: center; 
     img { margin-right: 1em; padding-bottom: 8px;}
     .incidental { margin-right: 1em; font-size: 0.8em; }
     #bungie-name { font-size: 1.2em;}
     #bungie-id { color: $dark-green;}
 }
 
-main div h2 { width: 100%; padding-left: 10px; color: $slight-green; margin: 1em 0 0 0;}
+main div h2 { 
+    width: 100%; padding-left: 10px; 
+    color: $slight-green; margin: 1em 0 0.25em 0;
+    text-align:center;
+}
 
 #controls {
-    display:flex; max-width: 100%; flex-wrap: wrap; background-color: $dark-blue; padding: 10px; 
-    a:nth-child(1) { border-radius: 10px 0 0 10px; padding-left: 10px;}
+    display:flex; max-width: 100%; flex-wrap: wrap; 
+    background-color: $dark-blue; padding: 10px; 
+    justify-content: center;
+
+    a:nth-child(1) { border-radius: 10px 0 0 10px; padding-left: 10px; }
+    a:nth-child(10) { border-radius: 0 10px 10px 0; padding-right: 10px; }
+    a:nth-child(12) { border-radius: 10px 0 0 10px; padding-left: 10px; }
     a:last-child { border-radius: 0 10px 10px 0; padding-right: 10px; }
     a { 
         display:block; padding: 0.2em 0.5em 0.3em; white-space: nowrap; margin: 1px; 
         color: $dark-green; background-color: $slight-green; text-decoration: none; font-size: 0.8em;
         cursor: pointer;
     }
+    .break { flex-basis: 100%; height: 0; }
 }
-#app .card { }
+
+@media screen and (min-width:1212px) {
+    .break { display:none; }
+    #controls {
+        a:nth-child(10), a:nth-child(12) { border-radius: 0; background: red; }
+    }
+}
+
 #apps , #graphics {
-    display: flex; flex-wrap: wrap;
+    display: flex; flex-wrap: wrap; justify-content: center;
     margin: 5px; 
 
     .card {
-        width: 250px; flex-direction: column; 
+        width: 202px; flex-direction: column; 
         background-color: $slight-green;
         margin: 5px;
 
@@ -51,13 +68,14 @@ main div h2 { width: 100%; padding-left: 10px; color: $slight-green; margin: 1em
 
         box-shadow: rgba(201, 250, 191, 0.1) 0px 1px 1px 0px inset, rgba(54, 93, 50, 0.25) 0px 50px 100px -20px, rgba(0, 70, 46, 0.3) 0px 30px 60px -30px;
 
-        h2,p,a,.tags { padding: 10px ; margin:0;}
+        .title { font-weight:bold; }
+        h2,p,a{ padding: 10px ; margin:0; }
         h2,p { margin:10px 0 0; padding: 0 10px; }
-        h2 { font-size: 1.3em; }
+        h2 { font-size: 1.3em;  }
         p { flex-grow: 1; }
         p:last-child { margin-bottom: 10px;}
 
-        .tags { margin-top: 0px; }
+        .tags { margin-top: 0px; padding: 0 5px 5px;}
         .tags span { 
             border-radius: 100px; background-color: $light-green; font-size: 0.6em; color: $white;
             padding: 2px 6px; text-transform: uppercase; white-space: nowrap; cursor: pointer;
@@ -75,9 +93,10 @@ main div h2 { width: 100%; padding-left: 10px; color: $slight-green; margin: 1em
 
 #graphics {
     display: flex; flex-wrap: wrap; margin: 5px 10px; 
-    justify-content: flex-end;
-    a,.card { border-radius: 10px 10px 0 0; }
-    .card { width:auto; margin-bottom: 0; display:flex; font-size: 0.8em; margin:1px;}
+    justify-content: center;
+    a,.card { border-radius: 25px 25px 0 0;}
+    .card a { padding: 15px 20px; display:block; }
+    .card { width:auto; margin-bottom: 0; display:flex; font-size: 0.8em; margin:1px; }
     #selected-graphic {
         flex-basis: 100%; width: 100%; background:$dark-blue; min-height:20px; border: none; 
     }
