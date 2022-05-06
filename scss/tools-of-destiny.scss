@@ -51,7 +51,7 @@ main div h2 {
 @media screen and (min-width:1212px) {
     .break { display:none; }
     #controls {
-        a:nth-child(10), a:nth-child(12) { border-radius: 0; background: red; }
+        a:nth-child(10), a:nth-child(12) { border-radius: 0; }
     }
 }
 

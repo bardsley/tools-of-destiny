@@ -49,8 +49,8 @@ var apps = [
             "description": "", "tags": [ "loadouts", "armor" ]
         },{ "name": "Nightfall Report",                         "url": "https://nightfall.report",
             "description": "", "tags": [ "stats","pve" ]
-        },{ "name": "",                         "url": "",
-            "description": "", "tags": [ ]
+        },{ "name": "Bungie Twitter",           "url": "https://twitter.com/BungieHelp",
+            "description": "", "tags": [ "stats" ]
         },{ "name": "",                         "url": "",
             "description": "", "tags": [ ]
         },{ "name": "",                         "url": "",

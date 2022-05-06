@@ -84,7 +84,6 @@ main div h2 {
 
   #controls a:nth-child(10), #controls a:nth-child(12) {
     border-radius: 0;
-    background: red;
   }
 }
 #apps, #graphics {
