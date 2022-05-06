@@ -18,16 +18,22 @@ html,body {
 }
 header {
     background-color: $dark-blue; color: $white;
-    padding: 1em; 
+    padding: 1em 1em 0 1em; display: flex; align-items:center; 
+    img { margin-right: 1em; padding-bottom: 8px;}
+    .incidental { margin-right: 1em; font-size: 0.8em; }
+    #bungie-name { font-size: 1.2em;}
+    #bungie-id { color: $dark-green;}
 }
 
-main div h2 { width: 100%; padding-left: 10px; color: $light-green; }
+main div h2 { width: 100%; padding-left: 10px; color: $slight-green; margin: 1em 0 0 0;}
 
 #controls {
-    display:flex; max-width: 100%; flex-wrap: wrap; 
+    display:flex; max-width: 100%; flex-wrap: wrap; background-color: $dark-blue; padding: 10px; 
+    a:nth-child(1) { border-radius: 10px 0 0 10px; padding-left: 10px;}
+    a:last-child { border-radius: 0 10px 10px 0; padding-right: 10px; }
     a { 
         display:block; padding: 0.2em 0.5em 0.3em; white-space: nowrap; margin: 1px; 
-        color: $white; background-color: $light-green; text-decoration: none; font-size: 0.8em;
+        color: $dark-green; background-color: $slight-green; text-decoration: none; font-size: 0.8em;
         cursor: pointer;
     }
 }
@@ -37,9 +43,13 @@ main div h2 { width: 100%; padding-left: 10px; color: $light-green; }
     margin: 5px; 
 
     .card {
-        width: 250px; display: none; flex-direction: column; 
+        width: 250px; flex-direction: column; 
         background-color: $slight-green;
         margin: 5px;
+
+        display: none; opacity: 0;
+
+        box-shadow: rgba(201, 250, 191, 0.1) 0px 1px 1px 0px inset, rgba(54, 93, 50, 0.25) 0px 50px 100px -20px, rgba(0, 70, 46, 0.3) 0px 30px 60px -30px;
 
         h2,p,a,.tags { padding: 10px ; margin:0;}
         h2,p { margin:10px 0 0; padding: 0 10px; }
@@ -64,10 +74,11 @@ main div h2 { width: 100%; padding-left: 10px; color: $light-green; }
 }
 
 #graphics {
+    display: flex; flex-wrap: wrap; margin: 5px 10px; 
+    justify-content: flex-end;
     a,.card { border-radius: 10px 10px 0 0; }
-    .card { width: 150px; margin-bottom: 0; display:flex; font-size: 0.8em; }
-    display: flex; flex-wrap: wrap; margin: 5px; 
+    .card { width:auto; margin-bottom: 0; display:flex; font-size: 0.8em; margin:1px;}
     #selected-graphic {
-        flex-basis: 100%; width: 100%; background:$dark-blue; min-height:20px;
+        flex-basis: 100%; width: 100%; background:$dark-blue; min-height:20px; border: none; 
     }
 }

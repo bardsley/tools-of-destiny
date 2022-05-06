@@ -9,27 +9,54 @@ html, body {
 header {
   background-color: #0E0B1B;
   color: #fff;
-  padding: 1em;
+  padding: 1em 1em 0 1em;
+  display: flex;
+  align-items: center;
+}
+header img {
+  margin-right: 1em;
+  padding-bottom: 8px;
+}
+header .incidental {
+  margin-right: 1em;
+  font-size: 0.8em;
+}
+header #bungie-name {
+  font-size: 1.2em;
+}
+header #bungie-id {
+  color: #05A895;
 }
 
 main div h2 {
   width: 100%;
   padding-left: 10px;
-  color: #8FD9C6;
+  color: #c9ebe2;
+  margin: 1em 0 0 0;
 }
 
 #controls {
   display: flex;
   max-width: 100%;
   flex-wrap: wrap;
+  background-color: #0E0B1B;
+  padding: 10px;
+}
+#controls a:nth-child(1) {
+  border-radius: 10px 0 0 10px;
+  padding-left: 10px;
+}
+#controls a:last-child {
+  border-radius: 0 10px 10px 0;
+  padding-right: 10px;
 }
 #controls a {
   display: block;
   padding: 0.2em 0.5em 0.3em;
   white-space: nowrap;
   margin: 1px;
-  color: #fff;
-  background-color: #8FD9C6;
+  color: #05A895;
+  background-color: #c9ebe2;
   text-decoration: none;
   font-size: 0.8em;
   cursor: pointer;
@@ -42,10 +69,12 @@ main div h2 {
 }
 #apps .card, #graphics .card {
   width: 250px;
-  display: none;
   flex-direction: column;
   background-color: #c9ebe2;
   margin: 5px;
+  display: none;
+  opacity: 0;
+  box-shadow: rgba(201, 250, 191, 0.1) 0px 1px 1px 0px inset, rgba(54, 93, 50, 0.25) 0px 50px 100px -20px, rgba(0, 70, 46, 0.3) 0px 30px 60px -30px;
 }
 #apps .card h2, #apps .card p, #apps .card a, #apps .card .tags, #graphics .card h2, #graphics .card p, #graphics .card a, #graphics .card .tags {
   padding: 10px;
@@ -88,22 +117,25 @@ main div h2 {
 #graphics {
   display: flex;
   flex-wrap: wrap;
-  margin: 5px;
+  margin: 5px 10px;
+  justify-content: flex-end;
 }
 #graphics a, #graphics .card {
   border-radius: 10px 10px 0 0;
 }
 #graphics .card {
-  width: 150px;
+  width: auto;
   margin-bottom: 0;
   display: flex;
   font-size: 0.8em;
+  margin: 1px;
 }
 #graphics #selected-graphic {
   flex-basis: 100%;
   width: 100%;
   background: #0E0B1B;
   min-height: 20px;
+  border: none;
 }
 
 /*# sourceMappingURL=main.css.map */
