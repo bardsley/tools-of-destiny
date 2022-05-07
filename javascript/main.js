@@ -2,13 +2,13 @@ var apps = [
         {   "name": "Braytech",                 "url": "https://bray.tech",
             "description": "", "tags": [ "maps","bounties","quests","vendors","triumphs","collections","weeklies","stats","lore" ]
         },{ "name": "Destiny recipes",          "url": "https://destinyrecipes.com",
-            "description": "","tags":  [ "item-mgt","vault","weeklies","weapons","armor","godrolls","power","prep" ]
+            "description": "","tags":  [ "item-mgt","vault","weapons","armor","godrolls","power","prep" ]
         },{ "name": "DIM",                      "url": "https://app.destinyitemmanager.com",
-            "description": "", "tags": [ "item-mgt","vault","loadouts","weapons","armor","godrolls","power"]
+            "description": "", "tags": [ "bounties","quests","vendors","triumphs","collections","weeklies","item-mgt","vault","loadouts","weapons","armor","godrolls","power"]
         },{ "name": "D2 Checklist",             "url": "https://www.d2checklist.com",
             "description": "", "tags": [ "bounties","quests","vendors","triumphs","collections","weeklies","power","prep" ]
         },{ "name": "Shattered Vault",          "url": "https://shatteredvault.com",
-            "description": "", "tags": [ "guides","lore","weeklies" ]
+            "description": "", "tags": [ "guides","lore" ]
         },{ "name": "Xur",                      "url": "https://wherexur.com",
             "description": "", "tags": [ "vendors","weapons","armor","stats" ]
         },{ "name": "Light.gg",                         "url": "https://www.light.gg",
