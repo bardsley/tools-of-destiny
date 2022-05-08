@@ -51,8 +51,8 @@ var apps = [
             "description": "", "tags": [ "stats","pve" ]
         },{ "name": "Bungie Twitter",           "url": "https://twitter.com/BungieHelp",
             "description": "", "tags": [ "stats" ]
-        },{ "name": "",                         "url": "",
-            "description": "", "tags": [ ]
+        },{ "name": "Memento Viewer",                         "url": "https://altbdoor.github.io/d2-memento/",
+            "description": "", "tags": [ "looks" ]
         },{ "name": "",                         "url": "",
             "description": "", "tags": [ ]
         },{ "name": "",                         "url": "",
