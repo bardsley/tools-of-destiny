@@ -53,8 +53,8 @@ var apps = [
             "description": "", "tags": [ "stats" ]
         },{ "name": "Memento Viewer",                         "url": "https://altbdoor.github.io/d2-memento/",
             "description": "", "tags": [ "looks" ]
-        },{ "name": "",                         "url": "",
-            "description": "", "tags": [ ]
+        },{ "name": "Destiny Symbols",                         "url": "https://nathanrsxtn.github.io/Destiny-2-Font-Symbols/",
+            "description": "", "tags": [ "looks" ]
         },{ "name": "",                         "url": "",
             "description": "", "tags": [ ]
         },{ "name": "",                         "url": "",
