@@ -1,2 +1,5 @@
-# Mechambre
+// Replacing Main list slowly
+// https://raw.githubusercontent.com/48klocs/dim-wish-list-sources/master/voltron.txt
+
+// Mechabre
 dimwishlist:item=1280894514&perks=839105230,3230963543,957782887,47981717
