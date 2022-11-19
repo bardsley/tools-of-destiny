@@ -86,8 +86,8 @@ var apps = [
         },{ "name": "Raid Dad",                         "url": "https://www.raiddad.com/clan/3/3859771?players[0]=4611686018484097098&playerPlatforms[0]=3",
             "description": "Basic toool (a little old) showing your clan/fireteams loadouts", "tags": ["raid"],
             "primary-colour": "#", "secondary-colour": "#", "logo": "", "text-colour": "#"
-        },{ "name": "",                         "url": "",
-            "description": "", "tags": [ ]
+        },{ "name": "GrandMaster Report",                         "url": "https://grandmaster.report/",
+            "description": "", "tags": [ "pve","stats"]
         },{ "name": "",                         "url": "",
             "description": "", "tags": [ ]
         },{ "name": "",                         "url": "",
