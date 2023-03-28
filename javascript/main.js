@@ -88,10 +88,10 @@ var apps = [
             "primary-colour": "#", "secondary-colour": "#", "logo": "", "text-colour": "#"
         },{ "name": "GrandMaster Report",                         "url": "https://grandmaster.report/",
             "description": "", "tags": [ "pve","stats"]
-        },{ "name": "",                         "url": "",
-            "description": "", "tags": [ ]
-        },{ "name": "",                         "url": "",
-            "description": "", "tags": [ ]
+        },{ "name": "D2 Soundboard",                         "url": "https://d2soundboard.mikey.app/#/soundboards/cayde",
+            "description": "", "tags": [ "funny" ]
+        },{ "name": "D2 Foundry",                         "url": "https://d2foundry.gg/",
+            "description": "", "tags": [ "godrolls", "stats", "weapons" ]
         },{ "name": "",                         "url": "",
             "description": "", "tags": [ ]
         },{ "name": "",                         "url": "",
