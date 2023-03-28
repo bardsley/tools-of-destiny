@@ -1,5 +1,5 @@
-// import * as db from '$lib/server/database';
- 
+export const prerender = true;
+
 /** @type {import('./$types').LayoutServerLoad} */
 export async function load() {
   console.log("loading Manifest");
