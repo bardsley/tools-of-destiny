@@ -2,19 +2,19 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="./perk-o-lator/favicon.png" />
+		<link rel="icon" href="./favicon.png" />
 		<meta name="viewport" content="width=device-width" />
 		<meta http-equiv="content-security-policy" content="">
-		<link href="./perk-o-lator/_app/immutable/assets/_page.7ae0db1b.css" rel="stylesheet">
-		<link rel="modulepreload" href="./perk-o-lator/_app/immutable/entry/start.a23ef027.js">
-		<link rel="modulepreload" href="./perk-o-lator/_app/immutable/chunks/index.aaf1d7ba.js">
-		<link rel="modulepreload" href="./perk-o-lator/_app/immutable/chunks/singletons.179cfd26.js">
-		<link rel="modulepreload" href="./perk-o-lator/_app/immutable/chunks/index.49e5f27a.js">
-		<link rel="modulepreload" href="./perk-o-lator/_app/immutable/entry/app.6615ccaf.js">
-		<link rel="modulepreload" href="./perk-o-lator/_app/immutable/entry/_layout.svelte.a207f5ef.js">
-		<link rel="modulepreload" href="./perk-o-lator/_app/immutable/entry/_layout.js.aa5b2b99.js">
-		<link rel="modulepreload" href="./perk-o-lator/_app/immutable/chunks/_layout.0229455e.js">
-		<link rel="modulepreload" href="./perk-o-lator/_app/immutable/entry/_page.svelte.728d6a2e.js">
+		<link href="./_app/immutable/assets/_page.7ae0db1b.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.fbfbe686.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.aaf1d7ba.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.dfc009b0.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.49e5f27a.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.a3ed1d68.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/_layout.svelte.a207f5ef.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/_layout.js.aa5b2b99.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_layout.0229455e.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/_page.svelte.728d6a2e.js">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -66,20 +66,19 @@
 			
 			<script>
 				{
-					__sveltekit_4t27g7 = {
+					__sveltekit_1ms8cji = {
 						env: {},
-						assets: "/perk-o-lator",
-						base: new URL("./perk-o-lator", location).pathname,
+						base: new URL(".", location).pathname.slice(0, -1),
 						element: document.currentScript.parentElement
 					};
 
 					const data = [null,null];
 
 					Promise.all([
-						import("./perk-o-lator/_app/immutable/entry/start.a23ef027.js"),
-						import("./perk-o-lator/_app/immutable/entry/app.6615ccaf.js")
+						import("./_app/immutable/entry/start.fbfbe686.js"),
+						import("./_app/immutable/entry/app.a3ed1d68.js")
 					]).then(([kit, app]) => {
-						kit.start(app, __sveltekit_4t27g7.element, {
+						kit.start(app, __sveltekit_1ms8cji.element, {
 							node_ids: [0, 2],
 							data,
 							form: null,
