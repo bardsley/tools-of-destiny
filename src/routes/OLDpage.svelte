@@ -2,23 +2,35 @@
     import { getContext } from 'svelte';
     import { writable } from 'svelte/store';
     import Wishlist from './Wishlist.svelte';
-    import { apiVersion, apiItemDefinitions, apiPlugsets} from '../stores/manifest';
+    import { apiVersion } from '../stores/manifest';
 
+    // Retrieve manifest store from context
+    const manifest = getContext('manifest');
     const perks = writable([[],[],[],[]]);
-    const itemID = '3110377595' //Object.keys($apiItemDefinitions)['3110377595']
-    const name = $apiItemDefinitions[itemID]?.displayProperties?.name
-    const plugSetIds = [1,2,3,4].map((index) => $apiItemDefinitions[itemID]?.sockets.socketEntries[index].randomizedPlugSetHash ).filter((i) => i > 0)
-    const plugSets = plugSetIds.map((plugsetId) => $apiPlugsets[plugsetId].reusablePlugItems.map((item) => item.plugItemHash ))
+   
+
+    const itemID = '3110377595' //Object.keys($manifest.items)['3110377595']
+    const name = $manifest.items[itemID]?.displayProperties?.name
+    const plugSets = [
+        $manifest.plugsets[$manifest.items[itemID].sockets.socketEntries[1].randomizedPlugSetHash].reusablePlugItems.map(function(item) {return item.plugItemHash}),
+        $manifest.plugsets[$manifest.items[itemID].sockets.socketEntries[2].randomizedPlugSetHash].reusablePlugItems.map(function(item) {return item.plugItemHash}),
+        $manifest.plugsets[$manifest.items[itemID].sockets.socketEntries[3].randomizedPlugSetHash].reusablePlugItems.map(function(item) {return item.plugItemHash}),
+        $manifest.plugsets[$manifest.items[itemID].sockets.socketEntries[4].randomizedPlugSetHash].reusablePlugItems.map(function(item) {return item.plugItemHash}),
+    ]
 
     const simplePlugs = plugSets.map(function(itemIDs) { 
         return itemIDs.map(function(itemID) {
             return {
                 id: itemID,
-                name: $apiItemDefinitions[itemID]?.displayProperties?.name,
-                icon: $apiItemDefinitions[itemID]?.displayProperties?.iconSequences[1]?.frames[0]
+                name: $manifest.items[itemID]?.displayProperties?.name,
+                icon: $manifest.items[itemID]?.displayProperties?.iconSequences[1]?.frames[0]
             }
         })
     });
+    const debugValue = simplePlugs
+    const debug = JSON.stringify(debugValue, null, 4)
+
+    
 
     const toggleValue = (anArray, aValue) => {
         // console.log(anArray,aValue)
@@ -32,11 +44,14 @@
         event.target.classList.toggle("selected")
         $perks[colId] = toggleValue($perks[colId],event.target.dataset.perkid)
     }
-
 </script>
 
-<div class="item" style="background-image: url('https://www.bungie.net{$apiItemDefinitions[itemID]?.screenshot}');">
-    <h1>{name}</h1>
+<nav>
+    <h1>Perk-o-later</h1>
+    <p>Using D2 APi version {$manifest.version} {apiVersion} containing {Object.keys($manifest.items).length} items</p>
+</nav>
+<div class="item" style="background-image: url('https://www.bungie.net{$manifest.items[itemID]?.screenshot}');">
+    <h2>{name} <span>{itemID}</span></h2>
     <div class="columns">
         <div class="selector">
             <div class="perks">
@@ -53,15 +68,21 @@
             <Wishlist selectedPerks={$perks} itemID={itemID} itemName={name}></Wishlist>   
         </div>
     </div>
-    <!-- <pre>{JSON.stringify(plugSets,null,2)}</pre> -->
+    
+    Selected {JSON.stringify($perks,null,4)}
+    <pre>
+        {JSON.stringify($perks,null,4)}
+<!-- ItemID: {itemID} 
+PlugSets: {JSON.stringify(plugSets,null, 4)}
+Debug: {debug} -->
+    </pre>
 </div>
 
 <style>
-        
+    
     .item {
-        background-size: contain; background-repeat: no-repeat; background-position: 50%;
-        background-size: cover;
-        background-color: #37383d; color: #fff;
+        background-size: contain; background-repeat: no-repeat;
+        background-color: #0e0f12;
         padding:1em 2em;
     }
     .perks{
@@ -69,7 +90,7 @@
     }
     :global(.perk) { 
         width:40px; height: 40px; 
-        display: block; background-repeat: no-repeat; background-size: contain;
+        display: block; background-repeat: no-repeat;
         background-color: rgba(25, 25, 31, 0.103); margin-bottom: 7px; border-radius: 4px;
         border: solid 1px rgba(0,0,0,0);
     }
@@ -78,6 +99,6 @@
         -webkit-filter: invert(100%);
     }
     .columns {
-        display: flex; gap: 30px;
+        display: flex;
     }
 </style>
