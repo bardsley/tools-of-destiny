@@ -7,17 +7,18 @@
 	<meta name="viewport" content="width=device-width" />
 	<meta http-equiv="content-security-policy" content="">
 		<link href="/perk-o-lator/_app/immutable/assets/_layout.12e21c13.css" rel="stylesheet">
-		<link href="/perk-o-lator/_app/immutable/assets/_page.ca88d33e.css" rel="stylesheet">
-		<link rel="modulepreload" href="/perk-o-lator/_app/immutable/entry/start.a0c94063.js">
+		<link href="/perk-o-lator/_app/immutable/assets/_page.60081e1f.css" rel="stylesheet">
+		<link rel="modulepreload" href="/perk-o-lator/_app/immutable/entry/start.a7124f33.js">
 		<link rel="modulepreload" href="/perk-o-lator/_app/immutable/chunks/index.65d71a4e.js">
-		<link rel="modulepreload" href="/perk-o-lator/_app/immutable/chunks/singletons.d91b7e95.js">
-		<link rel="modulepreload" href="/perk-o-lator/_app/immutable/entry/app.4154fbae.js">
-		<link rel="modulepreload" href="/perk-o-lator/_app/immutable/entry/_layout.svelte.a4520ee1.js">
-		<link rel="modulepreload" href="/perk-o-lator/_app/immutable/chunks/manifest.dfa0d533.js">
-		<link rel="modulepreload" href="/perk-o-lator/_app/immutable/chunks/stores.48a225e9.js">
+		<link rel="modulepreload" href="/perk-o-lator/_app/immutable/chunks/singletons.0552cd13.js">
+		<link rel="modulepreload" href="/perk-o-lator/_app/immutable/entry/app.57f5ff04.js">
+		<link rel="modulepreload" href="/perk-o-lator/_app/immutable/entry/_layout.svelte.85bf7775.js">
+		<link rel="modulepreload" href="/perk-o-lator/_app/immutable/chunks/manifest.77522c33.js">
+		<link rel="modulepreload" href="/perk-o-lator/_app/immutable/chunks/stores.ba72da88.js">
 		<link rel="modulepreload" href="/perk-o-lator/_app/immutable/entry/_layout.js.7a1495a9.js">
 		<link rel="modulepreload" href="/perk-o-lator/_app/immutable/chunks/_layout.ee91e24e.js">
-		<link rel="modulepreload" href="/perk-o-lator/_app/immutable/entry/items-page.svelte.65f1b538.js">
+		<link rel="modulepreload" href="/perk-o-lator/_app/immutable/entry/items-page.svelte.e6adaf5f.js">
+		<link rel="modulepreload" href="/perk-o-lator/_app/immutable/chunks/d2Hardcoded.1130ecfb.js">
 		<link rel="modulepreload" href="/perk-o-lator/_app/immutable/entry/items-page.js.4ed993c7.js">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,29 +53,33 @@
 			opacity: 0;
 			pointer-events: none;
 			transition: .2s ease-out;
-			transform: translate(-50%, 5px)
+			transform: translate(-50%, 5px);
+			
 		}
 
 		[data-tooltip]:before {
 			position: absolute;
 			bottom: 100%;
-			left: 50%;
+			left: 100px;
 			margin-bottom: 4px;
 			padding: 7px;
-			/* width: 100%;
-			min-width: 70px;
-			max-width: 450px; */
+			min-width: 200px;
+			max-width: 550px;
 			-webkit-border-radius: 3px;
 			-moz-border-radius: 3px;
 			border-radius: 3px;
-			background-color: #000;
-			background-color: rgba(0, 0%, 0, 0.9);
-			color: #fff;
+			background-color: #fff;
+			background-color: rgb(255, 255, 255);
+			color: #000;
 			content: attr(data-tooltip);
-			text-align: center;
+			text-align: left;
 			font-size: 0.7em;
 			line-height: 1.2;
-			transition: .2s ease-out
+			transition: .2s ease-out;
+			border: solid 1px #fff;
+		}
+		.selected[data-tooltip]:before {
+			background-color: #000; color: #fff;
 		}
 
 		[data-tooltip]:after {
@@ -82,13 +87,16 @@
 			bottom: 100%;
 			left: 50%;
 			width: 0;
-			border-top: 5px solid #000;
+			border-top: 5px solid #fff;
 			background-color: rgba(0, 0%, 0, 0.9);
 			border-right: 5px solid transparent;
 			border-left: 5px solid transparent;
 			content: " ";
 			font-size: 0;
 			line-height: 0;
+		}
+		.selected[data-tooltip]:after {
+			 border-top: 5px solid #000;
 		}
 
 		[data-tooltip]:hover:before,
@@ -113,9 +121,8 @@
 <nav class="svelte-j80q37"><h1 class="svelte-j80q37"><a href="/perk-o-lator/" class="svelte-j80q37">Perk-o-later</a></h1>
     <p class="svelte-j80q37">Using D2 APi version false containing 0 items</p></nav>
 
-undefined
 
-<div class="item svelte-fc7gww"><span id="loader">Loading 
+<div class="item svelte-1x6o9tq"><span id="loader">Loading 
 </span>
 
 <small></small>
@@ -126,7 +133,7 @@ undefined
 			
 			<script>
 				{
-					__sveltekit_1qcuo0l = {
+					__sveltekit_s7oq6r = {
 						env: {},
 						assets: "/perk-o-lator",
 						base: "/perk-o-lator",
@@ -136,10 +143,10 @@ undefined
 					const data = [null,null];
 
 					Promise.all([
-						import("/perk-o-lator/_app/immutable/entry/start.a0c94063.js"),
-						import("/perk-o-lator/_app/immutable/entry/app.4154fbae.js")
+						import("/perk-o-lator/_app/immutable/entry/start.a7124f33.js"),
+						import("/perk-o-lator/_app/immutable/entry/app.57f5ff04.js")
 					]).then(([kit, app]) => {
-						kit.start(app, __sveltekit_1qcuo0l.element, {
+						kit.start(app, __sveltekit_s7oq6r.element, {
 							node_ids: [0, 3],
 							data,
 							form: null,
