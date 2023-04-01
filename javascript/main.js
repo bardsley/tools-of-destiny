@@ -92,8 +92,8 @@ var apps = [
             "description": "", "tags": [ "funny" ]
         },{ "name": "D2 Foundry",                         "url": "https://d2foundry.gg/",
             "description": "", "tags": [ "godrolls", "stats", "weapons" ]
-        },{ "name": "",                         "url": "",
-            "description": "", "tags": [ ]
+        },{ "name": "Mobalytics D2",                         "url": "https://app.mobalytics.gg/destiny-2",
+            "description": "", "tags": [ "godrolls", "stats" ]
         },{ "name": "",                         "url": "",
             "description": "", "tags": [ ]
         }  
