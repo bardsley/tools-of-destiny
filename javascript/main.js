@@ -95,8 +95,11 @@ var apps = [
         },{ "name": "Mobalytics D2",                         "url": "https://app.mobalytics.gg/destiny-2",
             "description": "", "tags": [ "godrolls", "stats" ]
         },{ "name": "",                         "url": "",
-            "description": "", "tags": [ ]
+        "description": "", "tags": [ ]
+        },{ "name": "D2 Checkpoint",                         "url": "https://d2checkpoint.com/",
+            "description": "", "tags": ['raid','dungeon' ]
         }  
+        
     ];
     apps.sort((a,b) => { 
         return a.name.localeCompare(b.name) 
